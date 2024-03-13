@@ -20,6 +20,9 @@ class MainActivity : ComponentActivity() {
     @Inject
     lateinit var emailService: EmailService
 
+    @Inject
+    lateinit var emailService2: EmailService
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
