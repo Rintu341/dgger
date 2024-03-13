@@ -24,7 +24,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
 
-            val component = DaggerUserRegistrationComponent.builder().build()
+
+            val component = DaggerUserRegistrationComponent.factory().create(4)
             component.inject(this)
 
 //            emailService.send("sujanrintu@gmail.com","soumita@gamil.com","hii")

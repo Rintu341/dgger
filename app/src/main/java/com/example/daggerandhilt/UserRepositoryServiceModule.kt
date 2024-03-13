@@ -9,6 +9,6 @@ import dagger.hilt.migration.DisableInstallInCheck
 abstract class UserRepositoryServiceModule {
 
     @Binds
-    abstract  fun getUserRepositoryService(sqlRepository: SQLRepository):UserRepository
+    abstract  fun getSQLRepositoryService(sqlRepository: SQLRepository):UserRepository
 
 }

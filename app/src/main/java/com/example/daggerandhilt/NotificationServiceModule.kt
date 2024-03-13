@@ -8,13 +8,13 @@ import javax.inject.Named
 
 @Module
 @DisableInstallInCheck
-class NotificationServiceModule {
+class NotificationServiceModule() {
     @MassageQualifier
     @Provides
-    fun getNotificationService() : NotificationService
+    fun getNotificationService(retryCount:Int) : NotificationService
     {
         // write logic which type or Service we want to pass
-        return MassageService()
+        return MassageService(retryCount)
     }
 
     @Named("email")

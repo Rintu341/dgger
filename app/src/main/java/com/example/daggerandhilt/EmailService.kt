@@ -16,10 +16,10 @@ class EmailService @Inject constructor() : NotificationService{  //  This is cal
 
 }
 
-class MassageService() : NotificationService
+class MassageService(private val retryCount:Int) : NotificationService
 {
     override fun send(to: String, from: String, body: String) {
-        Log.d("TAG", "Massage Send")
+        Log.d("TAG", "Massage Send --- $retryCount")
     }
 
 }
