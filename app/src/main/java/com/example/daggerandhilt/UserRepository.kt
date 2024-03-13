@@ -10,13 +10,12 @@ interface UserRepository{
 
 class SQLRepository @Inject constructor() : UserRepository{    //  This is called constructor injection
     override fun saveUser(email: String, password: String) {
-        Log.d("saveUser:", "$email in DB")
+        Log.d("TAG", "$email in DB")
     }
 }
 
-class FireBaseRepository :UserRepository{
+class FireBaseRepository : UserRepository{
     override fun saveUser(email: String, password: String) {
-        TODO("Not yet implemented")
-        Log.d("Fire", "saveUser: in fire base")
+        Log.d("TAG", "saveUser: in fire base")
     }
 }

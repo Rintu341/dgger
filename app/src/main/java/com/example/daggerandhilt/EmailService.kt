@@ -1,12 +1,14 @@
 package com.example.daggerandhilt
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import javax.inject.Inject
 
-interface Notification{
+interface NotificationService{
     fun send(to:String,from:String,body:String)
 }
 
-class EmailService @Inject constructor() : Notification{  //  This is called constructor injection
+class EmailService @Inject constructor() : NotificationService{  //  This is called constructor injection
     override fun send(to:String, from:String, body:String)
     {
         //TODO
@@ -14,10 +16,10 @@ class EmailService @Inject constructor() : Notification{  //  This is called con
 
 }
 
-class MassageService() : Notification
+class MassageService() : NotificationService
 {
     override fun send(to: String, from: String, body: String) {
-        TODO("Not yet implemented")
+        Log.d("TAG", "Massage Send")
     }
 
 }

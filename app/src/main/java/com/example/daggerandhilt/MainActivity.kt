@@ -23,22 +23,11 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            /*
-//            val userRepository = UserRepository()
-//            val emailService = EmailService()
-//
-//            val userRegistrationService = UserRegistrationService(userRepository,emailService)
-             */
+
             val component = DaggerUserRegistrationComponent.builder().build()
             component.inject(this)
-            /*
 
-            val userRegistrationService = component.getUserRegistrationService()
-            val emailService = component.getEmailService()
-
-             */
-
-            emailService.send("sujanrintu@gmail.com","soumita@gamil.com","hii")
+//            emailService.send("sujanrintu@gmail.com","soumita@gamil.com","hii")
             userRegistrationService.registerUser("sujanrintu@gamil.com","2345")
 
             DaggerAndHiltTheme {
