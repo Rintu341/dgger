@@ -9,7 +9,7 @@ interface UserRepository{
 }
 
 
-@ApplicationScope
+@ActivityScope
 class SQLRepository @Inject constructor(private val analyticsService: AnalyticsService) : UserRepository{    //  This is called constructor injection
     override fun saveUser(email: String, password: String) {
         Log.d("TAG", "$email in DB")

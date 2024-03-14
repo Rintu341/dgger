@@ -28,11 +28,15 @@ class MainActivity : ComponentActivity() {
         setContent {
 
 
-            val component = (application as UserApplication).userRegistrationComponent
-            component.inject(this)
+            val appComponent = (application as UserApplication).appComponent
 
-            emailService = component.getEmailService()
-            emailService2 = component.getEmailService()
+            val userRegistrationComponent = appComponent.getUserRegistrationComponent()
+
+            userRegistrationComponent.inject(this)
+
+
+//            emailService = component.getEmailService()
+//            emailService2 = component.getEmailService()
 //            emailService.send("sujanrintu@gmail.com","soumita@gamil.com","hii")
             userRegistrationService.registerUser("sujanrintu@gamil.com","2345")
 

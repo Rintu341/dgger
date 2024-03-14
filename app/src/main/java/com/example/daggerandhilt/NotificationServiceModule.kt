@@ -14,10 +14,10 @@ class NotificationServiceModule() {
 //    @Singleton
     @MassageQualifier
     @Provides
-    fun getMassageService(retryCount:Int) : NotificationService
+    fun getMassageService() : NotificationService
     {
         // write logic which type or Service we want to pass
-        return MassageService(retryCount)
+        return MassageService(3)
     }
 
     @Named("email")
