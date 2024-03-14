@@ -17,20 +17,22 @@ class MainActivity : ComponentActivity() {
     @Inject
     lateinit var userRegistrationService: UserRegistrationService // this is called field injection
 
-    @Inject
-    lateinit var emailService: EmailService
 
-    @Inject
-    lateinit var emailService2: EmailService
+    private lateinit var emailService: EmailService
+
+
+    private lateinit var emailService2: EmailService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
 
 
-            val component = DaggerUserRegistrationComponent.factory().create(4)
+            val component = (application as UserApplication).userRegistrationComponent
             component.inject(this)
 
+            emailService = component.getEmailService()
+            emailService2 = component.getEmailService()
 //            emailService.send("sujanrintu@gmail.com","soumita@gamil.com","hii")
             userRegistrationService.registerUser("sujanrintu@gamil.com","2345")
 

@@ -9,7 +9,7 @@ interface UserRepository{
 }
 
 
-@Singleton
+@ApplicationScope
 class SQLRepository @Inject constructor() : UserRepository{    //  This is called constructor injection
     override fun saveUser(email: String, password: String) {
         Log.d("TAG", "$email in DB")

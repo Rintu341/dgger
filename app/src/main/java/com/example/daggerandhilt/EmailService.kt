@@ -9,7 +9,7 @@ interface NotificationService{
     fun send(to:String,from:String,body:String)
 }
 
-@Singleton
+@ApplicationScope
 class EmailService @Inject constructor() : NotificationService{  //  This is called constructor injection
     override fun send(to:String, from:String, body:String)
     {
