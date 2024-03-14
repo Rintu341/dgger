@@ -10,14 +10,16 @@ interface UserRepository{
 
 
 @ApplicationScope
-class SQLRepository @Inject constructor() : UserRepository{    //  This is called constructor injection
+class SQLRepository @Inject constructor(private val analyticsService: AnalyticsService) : UserRepository{    //  This is called constructor injection
     override fun saveUser(email: String, password: String) {
         Log.d("TAG", "$email in DB")
+        analyticsService.trackEvent("Save","CREATE")
     }
 }
 
-class FireBaseRepository : UserRepository{
+class FireBaseRepository(private val analyticsService: AnalyticsService) : UserRepository{
     override fun saveUser(email: String, password: String) {
         Log.d("TAG", "saveUser: in fire base")
+        analyticsService.trackEvent("Save","CREATE")
     }
 }
